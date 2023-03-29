@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0,interactive-widget=overlays-content">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+ <meta name="title" content="Webber | Design awesome web pages with ease" />
+ <meta name="description" content="Take advantage of our customizable drag and drop web templates and design snippets for creating your landing pages and more" />
+<link rel="canonical" href="index.html" />
+ <!-- Disable browser cacheing for this website  -->
+ <!--
+ <meta http-equiv='cache-control' content='no-cache'>
+ <meta http-equiv='expires' content='0'>
+ <meta http-equiv='pragma' content='no-cache'>-->
+ <title>Webber | Design awesome web pages with ease</title>
+ <link rel="stylesheet" href="res/bootstrap@5.0.0-alpha2.min.css">
+ <link rel="stylesheet" href="style.css" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+ <!--
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+ <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
+</head>
+
+<body>
+ <div id="root">
+  <header>
+   <div class="d-flex al-cent pt-1 jc-sb pr-5">
+    <div class="d-flex al-cent">
+    <img src="images/save_as.png" alt="Webber official logo" style="width: 1.5rem" />
+    <div id="mainNavs" class="pt-1" style="width: 25rem"></div>
+    </div>
+    <div id="page-title" class="flex-gr text-truncate text-center text-info"></div>
+   </div>
+   <div class="d-flex al-cent jc-sb p-1">
+    <button class="boundaryBoder mr-2" id="property"><i class="fa fa-database"></i></button>
+    <div class="format-bar d-flex flex-gr">
+     <div class="boundaryBoder d-flex mr-1 pr-1">
+      <span class="icon" title="Bold" data-action="Bold"><i class="fa fa-bold"></i></span>
+      <span class="icon" title="Italicize" data-action="Italic"><i class="fa fa-italic"></i></span>
+      <span class="icon" title="Underline" data-action="Underline"><i class="fa fa-underline"></i></span>
+     </div>
+     <div class="boundaryBoder d-flex mx-2">
+      <span class="dropdown d-flex al-cent mx-2" title="Margin" data-action="margin" style="width: 3rem">
+       <i class="fa fa-paste"></i>
+       <input type="text" class="my-input small-input1 mx-1" id="margin" />
+       <div class="dropdown-content main-list top-100 left-0 text-left" style="width: 5rem">
+        <ul>
+         <li class="p-0">
+          <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            All
+           <i class="fa fa-chevron-right"></i>
+           <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+            <ul data-prop="margin">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="m-0">M0</li>
+              <li data-value="m-1">M1</li>
+              <li data-value="m-2">M2</li>
+              <li data-value="m-3">M3</li>
+              <li data-value="m-4">M4</li>
+              <li data-value="m-5">M5</li>
+             </ul>
+           </div>
+          </div>
+         </li>
+         <li class="p-0">
+          <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Top
+           <i class="fa fa-chevron-right"></i>
+           <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+            <ul data-prop="margin-top">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="mt-0">M0</li>
+              <li data-value="mt-1">M1</li>
+              <li data-value="mt-2">M2</li>
+              <li data-value="mt-3">M3</li>
+              <li data-value="mt-4">M4</li>
+              <li data-value="mt-5">M5</li>
+             </ul>
+           </div>
+          </div>
+         </li>
+         <li class="p-0">
+          <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Right
+           <i class="fa fa-chevron-right"></i>
+           <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+            <ul data-prop="margin-right">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="mr-0">M0</li>
+              <li data-value="mr-1">M1</li>
+              <li data-value="mr-2">M2</li>
+              <li data-value="mr-3">M3</li>
+              <li data-value="mr-4">M4</li>
+              <li data-value="mr-5">M5</li>
+             </ul>
+           </div>
+          </div>
+         </li>
+         <li class="p-0">
+          <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Bottom
+           <i class="fa fa-chevron-right"></i>
+           <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+            <ul data-prop="margin-bottom">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="mb-0">M0</li>
+              <li data-value="mb-1">M1</li>
+              <li data-value="mb-2">M2</li>
+              <li data-value="mb-3">M3</li>
+              <li data-value="mb-4">M4</li>
+              <li data-value="mb-5">M5</li>
+             </ul>
+           </div>
+          </div>
+         </li>
+         <li class="p-0">
+          <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Left
+           <i class="fa fa-chevron-right"></i>
+           <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+            <ul data-prop="margin-left">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="ml-0">M0</li>
+              <li data-value="ml-1">M1</li>
+              <li data-value="ml-2">M2</li>
+              <li data-value="ml-3">M3</li>
+              <li data-value="ml-4">M4</li>
+              <li data-value="ml-5">M5</li>
+             </ul>
+           </div>
+          </div>
+         </li>
+        </ul>
+       </div>
+      </span>
+      <span class="dropdown d-flex al-cent mx-2" title="Padding" data-action="Padding" style="width: 3rem">
+        <i class="fa fa-copy"></i>
+        <input type="text" class="my-input small-input1 mx-1" id="padding" />
+        <div class="dropdown-content main-list top-100 left-0 text-left" style="width: 5rem">
+         <ul>
+          <li class="p-0">
+           <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            All
+            <i class="fa fa-chevron-right"></i>
+            <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+             <ul data-prop="padding">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="m-0">M0</li>
+              <li data-value="m-1">M1</li>
+              <li data-value="m-2">M2</li>
+              <li data-value="m-3">M3</li>
+              <li data-value="m-4">M4</li>
+              <li data-value="m-5">M5</li>
+             </ul>
+            </div>
+           </div>
+          </li>
+          <li class="p-0">
+           <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Top
+            <i class="fa fa-chevron-right"></i>
+            <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+             <ul data-prop="padding-top">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="mt-0">M0</li>
+              <li data-value="mt-1">M1</li>
+              <li data-value="mt-2">M2</li>
+              <li data-value="mt-3">M3</li>
+              <li data-value="mt-4">M4</li>
+              <li data-value="mt-5">M5</li>
+             </ul>
+            </div>
+           </div>
+          </li>
+          <li class="p-0">
+           <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Right
+            <i class="fa fa-chevron-right"></i>
+            <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+             <ul data-margin="padding-right">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="mr-0">M0</li>
+              <li data-value="mr-1">M1</li>
+              <li data-value="mr-2">M2</li>
+              <li data-value="mr-3">M3</li>
+              <li data-value="mr-4">M4</li>
+              <li data-value="mr-5">M5</li>
+             </ul>
+            </div>
+           </div>
+          </li>
+          <li class="p-0">
+           <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Bottom
+            <i class="fa fa-chevron-right"></i>
+            <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+             <ul data-margin="padding-bottom">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="mb-0">M0</li>
+              <li data-value="mb-1">M1</li>
+              <li data-value="mb-2">M2</li>
+              <li data-value="mb-3">M3</li>
+              <li data-value="mb-4">M4</li>
+              <li data-value="mb-5">M5</li>
+             </ul>
+            </div>
+           </div>
+          </li>
+          <li class="p-0">
+           <div class="dropdown d-flex al-cent jc-sb p-2 py-1">
+            Left
+            <i class="fa fa-chevron-right"></i>
+            <div class="dropdown-content main-list top-0 left-100" style="width: 3rem">
+             <ul data-margin="padding-left">
+              <li class="p-2 py-1" data-value="">None</li>
+              <li data-value="ml-0">M0</li>
+              <li data-value="ml-1">M1</li>
+              <li data-value="ml-2">M2</li>
+              <li data-value="ml-3">M3</li>
+              <li data-value="ml-4">M4</li>
+              <li data-value="ml-5">M5</li>
+             </ul>
+            </div>
+           </div>
+          </li>
+         </ul>
+        </div>
+       </span>
+      <span class="dropdown d-flex al-cent mx-2" style="width: 3rem">
+        <i class="fa fa-arrows-alt-h"></i>
+        <input type="text" name="width" id="width-sh" class="my-input small-input1 mx-2" />
+      </span>
+      <span class="dropdown d-flex al-cent mx-2" style="width: 3rem">
+       <i class="fa fa-arrows-alt-v"></i>
+       <input type="text" name="height" id="height-sh" class="my-input small-input1 mx-2" />
+      </span>
+     </div>
+    </div>
+    <div class="p-2 text-info rem10 center">
+     Version 1.0.0
+    </div>
+   </div>
+  </header>
+  <main class="d-flex">
+   <section id="tools-section" class=""></section>
+   <section id="frame-section" class="flex-gr">
+    <div class="d-flex jc-cent view">
+     <iframe src="" frameborder="0" class="mobile-view3" style="background-color: white;">
+     </iframe>
+    </div>
+   </section>
+   <section id="right-pane">
+    <header class="d-flex jc-sb right-pane-tabs">
+     <div role="tabpanel" class="tabs">
+      <span role="tablist" tabindex="1" data-tab="dom">DOM</span>
+      <span role="tablist" tabindex="1" data-tab="colors" class="currentTab">Colors</span>
+      <span role="tablist" tabindex="1" data-tab="styles">Styles</span>
+     </div>
+     <div class="dropdown">
+      <button class="contextMenu">&vellip;</button>
+      <div class="dropdown-content main-list right-100">
+       <ul>
+        <li>Text color</li>
+       </ul>
+      </div>
+     </div>
+    </header>
+    <main></main>
+   </section>
+  </main>
+  <footer><!--
+   <dialog open="true" class="newFDialog hide">
+    <div>
+     <header>
+      <div class="mb-4 d-flex al-cent pr-3">
+       <label for="tags" class="p-2 addTag">
+        Add tag <i class="fa fa-plus ml-1"></i>
+       </label>
+       <select id="links" class="form-select" style="width: 6rem">
+        <option value="meta">META</option>
+        <option value="link" selected>LINK</option>
+        <option value="base">BASE</option>
+       </select>
+       <select class="d-inline-block form-select" style="width: 5rem" multiple>
+        <option value="rel">rel</option>
+        <option value="href">href</option>
+        <option value="hreflang">hreflang</option>
+        <option value="type">type</option>
+        <option value="media">media</option>
+        <option value="sizes">sizes</option>
+        <option value="crossorigin">crossorigin</option>
+        <option value="as">as</option>
+        <option value="disabled">disabled</option>
+        <option value="title">title</option>
+        <option value="blocking">blocking</option>
+        <option value="fetchpriority">fetchpriority</option>
+        <option value="imagesizes">imagesizes</option>
+        <option value="imagesrcset">imagesrcset</option>
+        <option value="integrity">integrity</option>
+        <option value="prefetch">prefetch</option>
+        <option value="referrerpolicy">referrerpolicy</option>
+       </select>
+      </div>
+      <div class="mb-4 hide">
+       <label for="links" class="pr-3">
+        Add link <i class="fa fa-plus"></i>
+       </label>
+       <select id="links" class="addTag p-1" style="width: 6rem" multiple>
+        <option value="alternate">alternate</option>
+        <option value="apple-touch-icon">apple-touch-icon</option>
+        <option value="author">author</option>
+        <option value="bookmark">bookmark</option>
+        <option value="canonical">canonical</option>
+        <option value="dns-prefetch">dns-prefetch</option>
+        <option value="external">external</option>
+        <option value="help">help</option>
+        <option value="icon">icon</option>
+        <option value="license">license</option>
+        <option value="manifest">manifest</option>
+        <option value="me">me</option>
+        <option value="modulepreload">modulepreload</option>
+        <option value="next">next</option>
+        <option value="nofollow">nofollow</option>
+        <option value="noopener">noopener</option>
+        <option value="noreferrer">noreferrer</option>
+        <option value="opener">opener</option>
+        <option value="pingback">pingback</option>
+        <option value="preconnect">preconnect</option>
+        <option value="prefetch">prefetch</option>
+        <option value="preload">preload</option>
+        <option value="prerender">prerender</option>
+        <option value="prev">prev</option>
+        <option value="search">search</option>
+        <option value="sitemap">sitemap</option>
+        <option value="stylesheet">stylesheet</option>
+        <option value="tag">tag</option>
+       </select>
+      </div>
+     </header>
+     
+     <hr />
+     <div class="mt-2">
+      <div class="flex jc-sb py-2">
+       <label for="openGR">Enable open graph tags</label>
+       <div class="on-select" data-remember="false" role="checkbox" aria-checked="false">
+        <div class="trigger" id="trigger"></div>
+       </div>
+      </div>
+      <div>
+       <div class="pb-1 pos-rel center">
+        <label class="py-1" for="image" style="display: block">
+         <img class="ogimage" style="margin: 0 auto" />
+         <br />
+         <a href="" onclick="return false" class="p-1 choose-img bor-rad">Select an Open Graph image</a>
+        </label>
+        <input class="hide-ac" type="file" name="image" id="image" />
+        <label for="ogimageurl" class="pb-1 pt-2">Open Graph image link:</label>
+        <br />
+        <textarea class="p-2 py-1" name="ogimageurl" id="ogimageurl" style="width: 100%" rows="2"></textarea>
+       </div>
+      </div>
+     </div>
+    </div>
+   </dialog>-->
+  </footer>
+ </div>
+</body>
+<!--
+<script id="scr">
+fetch('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous'>)
+  .then(res => res.text())
+  .then(res => document.write(res))
+  .catch(err => console.error(err))
+
+</script>
+-->
+<script src="lib/initialize.js"></script>
+<script type="module" src="main.js"></script>
+<!--<link rel="stylesheet" href="animate.css" />-->
+
+</html>

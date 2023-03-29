@@ -1,0 +1,21 @@
+{
+  "name": "webber",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ojile Victor",
+  "license": "ISC",
+  "description": "Take advantage of our customizable drag and drop web templates and design snippets for creating your landing pages and more",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
