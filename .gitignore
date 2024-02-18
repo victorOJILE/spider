@@ -1,0 +1,5 @@
+react-icons/
+extras/
+tailwind.min.css
+node_modules/
+.env

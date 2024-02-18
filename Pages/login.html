@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <meta name="robots" content="index, follow" />
+ <title>SPIDER | Login</title>
+ <meta name="description" content="Login to your Spider account" />
+ <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet" /><!--
+ <link rel="icon" href="https://www.skysports.com/favicon.ico?bypass-service-worker" />
+ <link rel="icon" href="https://www.skysports.com/icon.svg?bypass-service-worker" type="image/svg+xml" />-->
+ <link rel="apple-touch-icon" href="logo192.png" />
+ <meta name="twitter:card" content="" />
+ <meta name="twitter:site" content="@Spider" />
+ <meta name="twitter:title" content="SPIDER | Login" />
+ <meta name="twitter:description" content="Login to your Spider account" />
+ <meta property="og:site_name" content="Spider" />
+ <meta property="og:title" content="SPIDER | Login" />
+ <meta property="og:description" content="Login to your Spider account" />
+ <meta property="og:url" content="" />
+ <link rel="stylesheet" href="tailwind.min.css" />
+ <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+ <header class="hero py-6">
+  <div class="container mx-auto px-4 relative">
+   <div class="max-w-6xl mx-auto pr-4">
+    <div class="flex justify-between">
+     <div class="flex-grow flex justify-between">
+      <div>
+       <!-- Website Logo -->
+       <a href="index.html" class="flex items-center md:py-4">
+        <svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" width="2em" height="2em" xmlns="http://www.w3.org/2000/svg" aria-label="Spider official logo">
+        	<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        	<path d="M5 4v2l5 5" />
+        	<path d="M2.5 9.5l1.5 1.5h6" />
+        	<path d="M4 19v-2l6 -6" />
+        	<path d="M19 4v2l-5 5" />
+        	<path d="M21.5 9.5l-1.5 1.5h-6" />
+        	<path d="M20 19v-2l-6 -6" />
+        	<path d="M12 15m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+        	<path d="M12 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+        </svg>
+        <small style="color: azure; font-size: 1.2em; font-family: monospace;margin: 0 0.25rem">SPIDER</small>
+       </a>
+      </div>
+      <!-- Primary Navbar items -->
+      <nav class="hidden pr-32 md:flex items-center space-x-1">
+       <a href="index.html" class="py-4 px-2 text-gray-400 font-semibold hover:text-green-400 transition duration-300">Home</a>
+       <a href="about.html" class="py-4 px-2 text-gray-400 font-semibold hover:text-green-400 transition duration-300">About</a>
+       <a href="FAQ.html" class="py-4 px-2 text-gray-400 font-semibold hover:text-green-400 transition duration-300">FAQ</a>
+       <a href="#contact" class="py-4 px-2 text-gray-400 font-semibold hover:text-green-400 transition duration-300">Contact Us</a>
+      </nav>
+     </div>
+     <!-- Mobile menu button -->
+     <div class="md:hidden flex items-center">
+      <button class="outline-none mobile-menu-button">
+       <svg class="w-6 h-6 text-gray-400 hover:text-green-500" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" focusable="false">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+       </svg>
+       <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" focusable="false">
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="red" stroke-width="2">
+         <path d="M4 18 L18 5" />
+         <path d="M4 5 L18 18" />
+        </g>
+       </svg>
+      </button>
+     </div>
+    </div>
+   </div>
+   <!-- mobile menu -->
+   <nav class="absolute bg-gray-900 w-full left-full mobile-menu md:hidden z-10 ease" style="top: 150%">
+    <ul>
+     <li class="active"><a href="index.html" class="block text-sm p-4 hover:bg-green-500 transition duration-300">Home</a></li>
+     <li><a href="about.html" class="block text-sm p-4 hover:bg-green-500 transition duration-300">About</a></li>
+     <li><a href="FAQ.html" class="block text-sm p-4 hover:bg-green-500 transition duration-300">FAQ</a></li>
+     <li><a href="#contact" class="block text-sm p-4 hover:bg-green-500 transition duration-300">Contact Us</a></li>
+    </ul>
+   </nav>
+   <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", function() {
+     for (let svg of btn.children) {
+      svg.classList.toggle('hidden');
+     }
+     menu.classList.toggle("left-0");
+     menu.classList.toggle("left-full");
+    });
+   </script>
+  </div>
+  <section class="py-12 mb-6">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+     <div class="py-8 hidden md:block">
+      <h1 class="text-4xl font-bold mb-4 leading-normal text-gray-300">Create, Share and Host Stunning Webpages Effortlessly.</h1>
+      <p class="text-md mb-6 text-gray-400">Create HTML elements, add responsive CSS styles, and generate corresponding codes with ease.</p>
+     </div>
+     <div>
+      <form name="login" class="relative morph rounded-md p-6 max-w-lg mx-auto flex flex-col items-center text-sm text-gray-300" autocomplete>
+       <h1 class="text-2xl md:text-4xl font-bold mb-4 leading-normal text-center">LOGIN</h1>
+       <div class="py-5 w-full">
+        <label class="inline-block pb-1" for="fullName">Full name</label>:<br />
+        <input class="block text-sm rounded-lg w-full input-wrapper p-2" type="text" name="fullName" id="fullName" placeholder="John" required />
+       </div>
+       <div class="pb-5 w-full">
+        <label class="inline-block pb-1" for="email">Email</label>:<br />
+        <input class="block text-sm rounded-lg w-full input-wrapper p-2" type="email" name="email" id="email" placeholder="example@gmail.com" required />
+        <div class="pt-2 items-center text-yellow-500 hidden" id="user-not-found">
+	       	<svg class="mr-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em"  xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" /><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+	       	Email not found
+	       </div>
+       </div>
+       <div class="pb-5 w-full">
+        <label class="inline-block pb-1" for="password">Password</label>:<br />
+        <div class="flex items-stretch rounded-lg input-wrapper bg-whit">
+         <input class="w-4/5 text-sm rounded-l-lg p-2" id="password" type="password" name="password" pattern=".{8,35}" placeholder="abcABC123#$&" required />
+         <span class="flex items-center anticon px-3 py-1">
+          <svg class="w-5 hidden" stroke="white" fill="white" focusable="false" viewBox="64 64 896 896" title="Hide password">
+           <path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z" />
+           <path d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z" />
+          </svg>
+          <svg class="w-5" stroke="white" fill="white" focusable="false" viewBox="64 64 896 896" title="View password">
+           <path d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z" />
+           <path d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z" />
+          </svg>
+         </span>
+        </div>
+        <div class="items-center py-2 text-yellow-500 hidden" id="invalid-password">
+        	<svg class="mr-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" width="1em" height="1em"  xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" /><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+        	Invalid password
+        </div>
+       </div>
+       <div class="pt-5">
+        <button type="submit" class="custom-btn bg-green-600">Login</button>
+       </div>
+       <p class="text-xs py-2">You don't have an account. <a class="text-blue-500" href="signup.html"><b><u>Sign up.</u></b></a></p>
+       <div class="my-4 text-center font-semibold" style="font-family: cursive">
+        OR
+       </div>
+       <div class="text-sm">
+        <a class="flex items-center py-2 px-3 mb-5 w-full rounded-xl border-2 border-gray-300" id="googleAuth">
+         <svg class="mr-2" width="2em" height="2em" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 150 150;" viewBox="10 5 120 120">
+          <style type="text/css">
+           .st12 {
+            fill: #F6B704;
+           }
+
+           .st13 {
+            fill: #E54335;
+           }
+
+           .st14 {
+            fill: #4280EF;
+           }
+
+           .st15 {
+            fill: #34A353;
+           }
+          </style>
+          <g>
+           <path class="st14" d="M120,76.1c0-3.1-0.3-6.3-0.8-9.3H75.9v17.7h24.8c-1,5.7-4.3,10.7-9.2,13.9l14.8,11.5   C115,101.8,120,90,120,76.1L120,76.1z" />
+           <path class="st15" d="M75.9,120.9c12.4,0,22.8-4.1,30.4-11.1L91.5,98.4c-4.1,2.8-9.4,4.4-15.6,4.4c-12,0-22.1-8.1-25.8-18.9   L34.9,95.6C42.7,111.1,58.5,120.9,75.9,120.9z" />
+           <path class="st12" d="M50.1,83.8c-1.9-5.7-1.9-11.9,0-17.6L34.9,54.4c-6.5,13-6.5,28.3,0,41.2L50.1,83.8z" />
+           <path class="st13" d="M75.9,47.3c6.5-0.1,12.9,2.4,17.6,6.9L106.6,41C98.3,33.2,87.3,29,75.9,29.1c-17.4,0-33.2,9.8-41,25.3   l15.2,11.8C53.8,55.3,63.9,47.3,75.9,47.3z" />
+          </g>
+         </svg>
+         <span>Continue with Google</span>
+        </a>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section>
+ </header>
+ <main>
+ </main>
+ <footer class="bg-gray-900 text-gray-300 pb-6">
+  <div class="container mx-auto max-w-3xl px-4">
+    <section class="py-12 text-sm" id="contact">
+      <h3 class="text-lg text-blue-700 font-semibold mt-4">Learn more</h3>
+      <nav class="py-3 grid sm:grid-cols-3 md:grid-cols-5">
+        <a href="contact_us.html" class="mb-3 hover:text-gray-300 hover:underline">Contact us</a>
+        <a href="faq.html" class="mb-3 hover:text-gray-300 hover:underline">FAQ</a>
+        <a href="about.html" class="mb-3 hover:text-gray-300 hover:underline">About us</a>
+        <a href="#" class="mb-3 hover:text-gray-300 hover:underline">Privacy Policy</a>
+        <a href="tos.html" class="mb-3 hover:text-gray-300 hover:underline">Terms of Service</a>
+      </nav>
+      <h3 class="text-lg text-blue-700 font-semibold mb-2">Follow Us</h3>
+      <nav class="py-3">
+        <ul class="list-unstyled flex">
+          <li class="mr-2 md:mr-5">
+            <a href="#" title="Facebook">
+              <div class="w-7 mr-1">
+                <img class="w-full" src="facebook.png" alt="Facebook icon" />
+              </div>
+            </a>
+          </li>
+          <li class="mr-2 md:mr-5">
+            <a href="#" title="Twitter">
+              <div class="w-7 mr-1">
+                <img class="w-full" src="twitter.png" alt="Twitter icon" />
+              </div>
+            </a>
+          </li>
+          <li class="mr-2 md:mr-5">
+            <a href="#" title="Instagram">
+              <div class="w-7 mr-1">
+                <img class="w-full" src="instagram.png" alt="Instagram icon" />
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <hr />
+    <div class="pt-4 md:pt-6 text-center text-xs">
+      <p>&copy; 2023 SPIDER.com All rights reserved.</p>
+    </div>
+  </div>
+ </footer>
+ <script>
+  +(function() {
+    let form = document.forms.login;
+    
+    let eyes = form.getElementsByClassName('anticon')[0];
+    let eyesChildren = eyes.children;
+
+    eyes.addEventListener('click', function() {
+     for (let eye of eyesChildren) {
+      eye.classList.toggle('hidden');
+     }
+    });
+
+    eyesChildren[0].onclick = function() { eyes.previousElementSibling.type = 'password' };
+
+    eyesChildren[1].onclick = function() { eyes.previousElementSibling.type = 'text' };
+    
+    let invalid_pass = document.getElementById('invalid-password');
+    let email_not_found = document.getElementById('user-not-found');
+
+    form.addEventListener('submit', function(event) {
+     event.preventDefault();
+     
+     if (navigator.onLine !== false) {
+      //return alert('No internet connection!');
+     }
+
+     let submitBtn = form.getElementsByTagName('button')[0];
+
+     submitBtn.innerHTML = '<span class="loader"></span>';
+     let cover = document.createElement('div');
+     cover.classList.add('form-cover');
+     form.append(cover);
+
+     invalid_pass.classList.add('hidden');
+     email_not_found.classList.add('hidden');
+     
+     fetch('/auth/login', {
+      method: 'POST',
+      headers: {
+       'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+       email: form.email.value,
+       password: form.password.value
+      })
+     })
+     .then(function(res) {
+      // redirect to app
+     })
+     .catch(function(error) {
+      submitBtn.innerHTML = 'Login';
+      
+      if (error.code == 'auth/user-not-found') {
+      	email_not_found.classList.replace('hidden', 'flex');
+      }
+      if (error.code == "auth/wrong-password") {
+      	invalid_pass.classList.replace('hidden', 'flex');
+      }
+      
+      form.remove(cover);
+     });
+    });
+   })();
+ </script>
+</body>
+
+</html>

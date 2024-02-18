@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+ <meta name="title" content="SPIDER | Develop awesome web pages with ease" />
+ <meta name="description" content="Take advantage of our customizable drag and drop web templates and design snippets for creating your landing pages and more" />
+ <title>SPIDER - Design awesome web pages with ease</title>
+ <script src="/jquery.min.js"></script>
+ <script src="/gsap.min.js"></script>
+	<!--
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet" />-->
+	<link rel="stylesheet" href="/tailwind.min.css" />
+ <link rel="stylesheet" href="/project-style.css" />
+</head>
+
+<body class="flex flex-col relative">
+ <header>
+  <section class="flex al-cent" style="border-bottom: 1px solid">
+   <div id="mainNavs" class="flex items-center justify-between whitespace-nowrap">
+   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="2rem" height="1.6rem" xmlns="http://www.w3.org/2000/svg" aria-label="Spider official logo">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+   <path d="M5 4v2l5 5" />
+   <path d="M2.5 9.5l1.5 1.5h6" />
+   <path d="M4 19v-2l6 -6" />
+   <path d="M19 4v2l-5 5" />
+   <path d="M21.5 9.5l-1.5 1.5h-6" />
+   <path d="M20 19v-2l-6 -6" />
+   <path d="M12 15m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+   <path d="M12 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+   </svg>
+   </div>
+   <div id="page-title" class="truncate flex-grow text-center"></div>
+   <div class="flex jc-fe al-cent ml-12" id="pageData">
+    <span class="text-yellow-500 px-3">Version&nbsp;1.5.3</span>
+    <div class="my-1 mx-2 bg-dark">
+     <div class="profile_img_width border-white flex-ajc">
+      <img class="w-full" src="/webber.png" alt="Profile picture" onerror="this.nextElementSibling.classList.remove('hidden');this.parentElement.style.backgroundColor = '#0d6efd';this.remove();" />
+      <span class="hidden">V</span>
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="flex items-stretch py-1" id="formatting-toolbar"></div>
+ </header>
+ <main class="flex-grow flex">
+  <section id="tools-section"></section>
+  <section class="relative flex-grow bg-2" id="frame-section">
+   <div class="h-full w-full absolute top-0 left-0">
+    <iframe src="" frameborder="0" class="fluid-view" id="iframe" style="background-color: white; height: 100%; margin: 0 auto">
+    </iframe>
+   </div>
+  </section>
+  <section id="right-pane" class="w-72">
+   <header class="flex jc-sb right-pane-tabs boundaryBorder">
+    <div role="tabpanel" class="tabs overflow-auto" style="white-space: nowrap">
+     <span role="tablist" tabindex="1" class="p-2 mr-1" data-tab="tree">Tree</span>
+     <span role="tablist" tabindex="1" data-tab="properties" class="p-2 mr-1 currentTab">Properties</span>
+     <span class="p-2 mr-1" role="tablist" tabindex="1" data-tab="styles">Styles</span>
+     <span class="p-2 mr-1" role="tablist" tabindex="1" data-tab="snippets">Snippets</span>
+    </div>
+    <div class="dropdown">
+    	<button type="button" class="px-3 h-full text-lg">&vellip;</button>
+	    <ul class="menu right-0" id="otherFeatures" tabindex="0">
+	    	<li role="tablist" tabindex="1" data-tab="animations">Animations</li>
+	    	<li role="tablist" tabindex="1" data-tab="actions">Actions</li>
+	    </ul>
+    </div>
+   </header>
+   <main>
+   </main>
+  </section>
+ </main>
+ <footer class="flex-ajsb"></footer>
+ <noscript>
+  Please enable JavaScript to view this page!
+ </noscript>
+</body>
+<script>
+	window.onerror = function(a,b,c) { console.error(a,b,c) }
+</script>
+<script src="/initialize.js"></script>
+<script src="/auth.js"></script>
+</html>
