@@ -182,7 +182,7 @@
  <main>
  </main>
  <footer class="bg-gray-900 text-gray-300 pb-6">
-  <div class="container mx-auto max-w-3xl px-4">
+  <div class="container mx-auto max-w-4xl px-4">
     <section class="py-12 text-sm" id="contact">
       <h3 class="text-lg text-blue-700 font-semibold mt-4">Learn more</h3>
       <nav class="py-3 grid sm:grid-cols-3 md:grid-cols-5">
@@ -232,63 +232,68 @@
 	 
   +(function() {
   	const createElement = (function() {
-				let element, props, prop;
-			
-				let task = {
-					'class'() {
-						element.className = props.class;
-					},
-					data() {
-						element.dataset = props.data;
-					},
-					style() {
-						for (let prop in props.style) {
-							element.style[prop] = props.style[prop];
-						}
-					},
-					event() {
-						for (let ev in props.event) {
-							element.addEventListener(ev, props.event[ev]);
-						}
-					}
-				}
-			
-				return function(elem, object, property) {
-					element = elem;
-					props = object;
-					prop = property;
-			
-					if (task[prop]) {
-						task[prop]();
-					} else {
-						element[property] = object[property];
-					}
-				}
-			})();
-			
-			const argsSlice = Array.prototype.slice;
-			const elemAppend = Element.prototype.append;
-			
-			/**
-			 * Create html DOM element
-			 * @returns {HTMLElement}
-			 */
-			function cEl(elem, props) {
-				let element = document.createElement(elem);
-				if (props && props.constructor.name === 'object') {
-					for (let prop in props) {
-						createElement(element, props, prop);
-					}
-				}
-			
-				if (arguments.length > 2) {
-					elemAppend.apply(element, argsSlice.call(arguments, 2));
-				}
-			
-				return element;
-			}
-  	
-  	
+      let element, props, prop;
+    
+      let task = {
+        'class'() {
+          element.className = props.class;
+        },
+        data() {
+          element.dataset = props.data;
+        },
+        style() {
+          for (let prop in props.style) {
+            element.style[prop] = props.style[prop];
+          }
+        },
+        event() {
+          for (let ev in props.event) {
+            element.addEventListener(ev, props.event[ev]);
+          }
+        }
+      }
+    
+      return function(elem, object) {
+        element = elem;
+        props = object;
+        
+        for(let property in object) {
+          prop = property;
+      
+          if (task[property]) {
+            task[property]();
+          } else {
+            element[property] = object[property];
+          }
+        }
+        
+      }
+    })();
+    
+    const argsSlice = Array.prototype.slice;
+    const elemAppend = Element.prototype.append;
+    
+    /**
+     * Create html DOM element
+     * @returns {HTMLElement}
+     */
+    function cEl(elem, props) {
+      let element = document.createElement(elem);
+      if (props && props.constructor.name === 'Object') {
+        createElement(element, props);
+      }
+    
+      if (arguments.length > 2) {
+        elemAppend.apply(element, argsSlice.call(arguments, 2));
+      }
+    
+      return element;
+    }
+  
+    function text(str) {
+      return document.createTextNode(str);
+    }
+
    function useOtherMeth(provider, mainProvider) {
    	
     signInWithPopup(auth, provider)
@@ -303,7 +308,7 @@
 
       document.cookie = `lastRefresh=${Date.now()};max-age=1111111`;
 
-      location.href = './overview.html';
+      location.href = '/project';
      })
      .catch(function(error) {
       console.error(error);
@@ -345,7 +350,7 @@
     cover.classList.add('form-cover');
     form.append(cover);
     
-    let { email, password, firstName, lastName } = Array.from(form).reduce((a, b) => (b.name && (a[b.name] = b.value), a), {});
+    let { email, password, firstName, lastName } = Array.from(form).reduce((a, b) => (b.name && (a[b.name] = b.value.trim()), a), {});
     
     async function addUser() {
      try {
@@ -354,20 +359,18 @@
      		headers: {
      			'Content-Type': 'application/json',
      		},
-     		body: JSON.stringify({
-     			email: email,
-     			password: password,
-     			firstName,
-     			lastName
-     		})
+     		body: JSON.stringify({ email, password, firstName, lastName })
       });
-      
+      result = await result.json();
+      console.log('Back from Creating User');
+      console.log(result);
       document.cookie = `lastRefresh=${Date.now()};max-age=1111111;secure`;
 
       await fetch('/auth/updateUser', {
       	method: 'POST',
      		headers: {
      			'Content-Type': 'application/json',
+          token: 'myToken'
      		},
      		credentials: "include",
      		body: JSON.stringify({
@@ -375,7 +378,7 @@
      		})
       });
       
-      location.href = './overview.html';
+      // location.href = '/project';
      } catch (error) {
       if (error.code == 'auth/email-already-in-use') {
        let text = form.getElementsByClassName('email-info')[0];
@@ -390,24 +393,25 @@
 
     // If verifiedEmail is truthy, email has been verified successfully but there was an error creating the user
     if (verifiedEmail !== email) { // if email changes from the input, re-verify email, else createUser
-     const modal = cEl('dialog');
-
+     
      function sendEmail() {
       const verificationCode = String(Math.floor(Math.random() * 9999) + 1000).slice(0, 4);
-/*
+      const modal = cEl('dialog');
+console.log(verificationCode)
       fetch("/mailer", {
       	method: 'POST',
       		headers: {
       			'Content-Type': 'application/json',
       		},
       		body: JSON.stringify({
-      			email: email.value,
-      			fullname: fullName,
+      			email,
+      			fullname: `${firstName} ${lastName}`,
       			otp: verificationCode,
       			code: 'verifyOTP'
       		})
        })
-       .then(function() {*/
+       .then(res => res.json())
+       .then(function() {
         // Verification code timeout countdown timer
         const timeout = Date.now() + (60 * 60 * 1000);
         let minutes = cEl('span', { textContent: '59' }),
@@ -443,29 +447,28 @@
          }
         }
 
-        empty(modal);
         modal.append(
          cEl('form', {
            class: 'p-4 bg-white text-xs text-center relative',
            event: {
             submit: function(e) {
              e.preventDefault();
-             let data = '';
-             iter(new FormData(this), function(key) { data += key[1] });
+             
+             let data = Array.from(this).reduce((a, b) => (b.name && (a += b.value.trim()), a), '');
+             
              if (data == verificationCode) {
               // In case of user creation error, save the verified email, which indicates that the user has verified the email
               verifiedEmail = email;
-              modal.close()
+              modal.close();
               addUser();
              }
             }
            }
           },
-          cEl('img', { src: './static/images/inbox1.png', class: 'w-3/5 mx-auto' }),
+          cEl('img', { src: 'inbox1.png', class: 'w-3/5 mx-auto' }),
           cEl('div', { class: 'mt-2' },
-           cEl('h1', { textContent: verificationCode }),
            cEl('h2', { textContent: 'OTP Verification', class: 'text-xl mb-1' }),
-           cEl('p', { class: 'text-gray-600 leading-relaxed', innerHTML: "We've sent a verification code to: <b>" + 'ojilevictor11@gmail.com' + '</b>' })
+           cEl('p', { class: 'text-gray-600 leading-relaxed', innerHTML: "We've sent a verification code to: <b>" + email + '</b>' })
           ),
           cEl('div', {
             class: 'p-3 mt-4 flex justify-between text-lg',
@@ -487,19 +490,19 @@
              }
             }
            },
-           cEl('input', { type: 'number', class: 'border rounded-lg p-2 text-center w-12', name: 'num1', event: { keyup: inputValidation } }),
-           cEl('input', { type: 'number', name: 'num2', class: 'border rounded-lg p-2 w-12 text-center', event: { keyup: inputValidation } }),
-           cEl('input', { type: 'number', name: 'num3', class: 'border rounded-lg p-2 w-12 text-center', event: { keyup: inputValidation } }),
-           cEl('input', { type: 'number', name: 'num4', class: 'border rounded-lg p-2 w-12 text-center', event: { keyup: inputValidation } })
+           cEl('input', { type: 'number', name: 'num1', class: 'border rounded-lg p-2 w-12 text-center text-gray-900', event: { keyup: inputValidation } }),
+           cEl('input', { type: 'number', name: 'num2', class: 'border rounded-lg p-2 w-12 text-center text-gray-900', event: { keyup: inputValidation } }),
+           cEl('input', { type: 'number', name: 'num3', class: 'border rounded-lg p-2 w-12 text-center text-gray-900', event: { keyup: inputValidation } }),
+           cEl('input', { type: 'number', name: 'num4', class: 'border rounded-lg p-2 w-12 text-center text-gray-900', event: { keyup: inputValidation } })
           ),
           cEl('center', {},
            cEl('p', { class: 'mt-2 text-gray-600' },
-            text("Didn't get the OTP? "),
+            document.createTextNode("Didn't get the OTP? "),
             cEl('b', {
              class: "text-green-500 hover:bg-gray-200",
              textContent: 'RESEND OTP',
              event: {
-              click: function() {
+              click() {
                clearInterval(countdown);
                sendEmail();
               }
@@ -509,25 +512,26 @@
           ),
           cEl('button', { class: 'mt-6 mb-3 w-full p-3 rounded-md bg-blue-700 text-gray-50 text-sm font-bold', textContent: 'Verify code' }),
           cEl('p', { class: 'text-gray-600' },
-           text('OTP expires in '),
+           document.createTextNode('OTP expires in '),
            cEl('b', {},
-            text('00:'),
+            document.createTextNode('00:'),
             minutes,
-            text(':'),
+            document.createTextNode(':'),
             seconds
            )
           )
          )
         );
 
-        modal.open || document.body.append(modal);
-        modal.open || modal.showModal();/*
+        document.body.append(modal);
+        modal.showModal();
        })
        .catch(error => {
-       	modal.remove();
-       	cover.remove();
-       	submitBtn.innerHTML = 'Sign Up';
-       });*/
+          modal.remove();
+          cover.remove();
+          submitBtn.innerHTML = 'Sign Up';
+          console.error(error)
+       });
      }
 
      sendEmail();

@@ -12,4 +12,4 @@ router.get('/', function(req, res) {
   res.sendFile(path.resolve('./pages/index.html'));
 });
 
-module.exports.router = router;
+module.exports = router;

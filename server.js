@@ -3,17 +3,20 @@ const path = require('path');
 const express = require('express');
 const app = express();
 // require('/firebase/config.js');
-const pages = require('./routes/pages.js').router;
-const project = require('./routes/project.js').router;
-// const auth = require('./routes/auth.js').router;
+const pages = require('./routes/pages.js');
+const project = require('./routes/project.js');
+const auth = require('./routes/auth.js');
+const mailer = require('./controllers/mailer.js');
 
 app.use(express.json());
 
 app.use('/', pages);
-// app.use('/auth', auth);
+app.use('/auth', auth);
 
 app.use('/', express.static(path.resolve('./lib')));
-app.use('/project', project)
+app.use('/project', project);
+
+app.post('/mailer', mailer);
 
 process.on('unhandledRejection', error => {
   console.log('unhandledRejection', error.message);

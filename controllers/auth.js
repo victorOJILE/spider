@@ -1,17 +1,19 @@
-const firebase = require('firebase');
-const admin = require('firebase-admin');
+// const firebase = require('firebase');
+// const admin = require('firebase-admin');
 
 exports.createUser = async function(req, res) {
 	try {
 		let { email, password, firstName, lastName } = req.body;
 		
-		const userRecord = await admin.auth().createUser({
-			email,
-			emailVerified: true,
-			password
-		});
+		res.set("token", 'mytoken');
+		res.status(200).json({ message: 'Request recieved', body: req.body })
+		// const userRecord = await admin.auth().createUser({
+		// 	email,
+		// 	emailVerified: true,
+		// 	password
+		// });
 		
-		const customToken =	await	admin.auth().createCustomToken(userRecord.uid);
+		// const customToken =	await	admin.auth().createCustomToken(userRecord.uid);
 		
 		// Add user to firestore 
 		// admin.firestore().setDoc();
@@ -19,7 +21,7 @@ exports.createUser = async function(req, res) {
 		// res.setHeaders() token
 		// token would be taken from req.headers when authenticating
 		
-		res.status(201).json(userRecord);
+		// res.status(201).json(userRecord);
 		
 	}	catch(error) {
 		res.status(500).send(error);
@@ -44,10 +46,12 @@ exports.login = async function(req, res) {
 
 exports.updateUser = async function(req, res) {
 	try {
+console.log(req.headers);
+
 		// req.uid was passed in from authenticate
-		await	getAuth().updateUser(req.uid, {
-				displayName: req.body.displayName
-			});
+		// await	getAuth().updateUser(req.uid, {
+		// 		displayName: req.body.displayName
+		// 	});
 		
 		res.status(200).send();
 	} catch(error) {

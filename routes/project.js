@@ -24,4 +24,4 @@ router.get('/', function(req, res) {
 
 // router.get('/files/snippets', auth.authenticate, data.getMySnippets);
 
-module.exports.router = router;
+module.exports = router;
